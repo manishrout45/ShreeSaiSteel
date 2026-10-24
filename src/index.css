@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Bright reflection directly ON the heading letters */
+.steel-shine-text {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.steel-shine-text::after {
+  content: "SHREE SAI STEEL";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+
+  /* Match the original text exactly */
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  white-space: nowrap;
+
+  color: transparent;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.7) 44%,
+    #ffffff 48%,
+    #ffffff 52%,
+    #b9f1ff 55%,
+    rgba(255, 255, 255, 0.9) 58%,
+    transparent 65%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  pointer-events: none;
+  animation: glass-light-pass 2.2s linear infinite;
+}
+
+@keyframes glass-light-pass {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
